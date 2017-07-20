@@ -1,0 +1,14 @@
+div.boxer
+  div class="alert"
+    -if flash[:alert]
+      p =flash[:alert]
+
+  =form_tag do
+    div.form-group
+      lable email
+      = text_field_tag :email, params[:email], class: 'form-control', id: 'exampleInputEmail1', placeholder: 'Email'
+    div.form-group
+      lable password
+      = password_field_tag :password, params[:password], class: 'form-control', id: 'exampleInputPassword1', placeholder: 'Password'
+
+      .action-login =submit_tag 'login', class: "btn btn-primary login-but"

@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  skip_before_action :authorize_user, only: [:index]
   def new
   end
 

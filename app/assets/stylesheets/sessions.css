@@ -1,0 +1,9 @@
+.boxer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.login-but {
+  margin-top: 5px;
+}
