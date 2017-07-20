@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   skip_before_action :authorize_user, only: [:index]
-  before_action :set_task, only: [:edit, :update, :destroy]
+  before_action :set_task, only: [:edit, :update, :destroy, :show, :admin_show]
   def new
     @task = Task.new
     redirect_to admin_new_path if @current_user.role == 'admin'
@@ -42,6 +42,10 @@ class TasksController < ApplicationController
   end
 
   def show
+    redirect_to admin_show_path(id: @task.id) if @current_user.role == 'admin'
+  end
+
+  def admin_show
   end
 
   def destroy

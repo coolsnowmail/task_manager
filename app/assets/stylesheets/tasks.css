@@ -32,3 +32,13 @@
 .for_new_task_btn {
   display: flex;
 }
+
+.task_box {
+  display: flex;
+  flex-direction: column;
+}
+
+.task_item {
+  margin: 0 auto;
+  margin-top: 30px;
+}
