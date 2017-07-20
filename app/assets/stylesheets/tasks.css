@@ -1,0 +1,13 @@
+.taskLine {
+  display: flex;
+  justify-content: center;
+}
+
+.taskAttr {
+  display: block;
+  margin-right: 10px;
+}
+
+.taskListHeader {
+  text-align: center;
+}
