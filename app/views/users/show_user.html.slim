@@ -1,9 +1,16 @@
-h1 Users#show_user
-h1 Users#show_user
-h1 Users#show_user
-h1 Users#show_user
-h1 Users#show_user
-h1 Users#show_user
-h1 Users#show_user
-h1 Users#show_user
-p Find me in app/views/users/show_user.html.slim
+h1.taskListHeader Tasks list
+
+- @current_user.tasks.each do |task|
+  div.taskBox
+    ul.taskLine
+      li.taskAttr
+        = task.id
+      li.taskAttr
+        = task.name
+      li.taskAttr
+        = task.description
+      li.taskAttr
+        = task.state
+      li.taskAttr
+        = task.created_at.strftime('%H:%M:%S %Y-%m-%d')
+  hr.intro-divider

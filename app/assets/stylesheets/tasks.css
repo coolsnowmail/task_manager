@@ -1,11 +1,13 @@
 .taskLine {
+  display: block;
   display: flex;
   justify-content: center;
 }
 
 .taskAttr {
   display: block;
-  margin-right: 10px;
+  margin-right: 20px;
+  max-width: 300px;
 }
 
 .taskListHeader {
