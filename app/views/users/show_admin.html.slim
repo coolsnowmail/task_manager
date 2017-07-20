@@ -1,6 +1,22 @@
-h1 Users#show_admin
-h1 Users#show_admin
-h1 Users#show_admin
-h1 Users#show_admin
-h1 Users#show_admin
-p Find me in app/views/users/show_admin.html.slim
+h1.taskListHeader Tasks list
+
+- @tasks.each do |task|
+  div.taskBox id="task_#{task.id}"
+    ul.taskLine
+      li.taskAttr
+        = task.id
+      li.taskAttr
+        = task.user.email
+      li.taskAttr
+        = task.name
+      li.taskAttr
+        = task.description
+      li.taskAttr
+        = task.state
+      li.taskAttr
+        = task.created_at.strftime('%H:%M:%S %Y-%m-%d')
+      li.taskAttr.ruleTask
+        = link_to 'Update', admit_edit_path(task), class: 'btn btn-primary'
+        = link_to 'Destroy', task, data: { confirm: 'Are you sure' }, method: :delete, class: 'btn btn-primary', remote: true
+  hr.intro-divider id="divider_#{task.id}"
+= link_to "New task", new_task_path, class: 'btn-lg btn-primary'

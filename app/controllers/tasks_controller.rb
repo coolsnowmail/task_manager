@@ -27,6 +27,15 @@ class TasksController < ApplicationController
   end
 
   def edit
+    redirect_to admit_edit_path if @current_user.role == 'admin'
+  end
+
+  def admit_edit
+    @users = User.all.collect(&:email)
+    @task = Task.find(params[:format])
+  end
+
+  def show
   end
 
   def destroy
