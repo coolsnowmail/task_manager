@@ -1,0 +1,4 @@
+= form_tag('/state_change', remote: true) do
+  = select_tag "state", options_for_select(Task.states.keys, selected: task.state), {class: 'tasky'}
+  = hidden_field_tag("id", task.id)
+  = submit_tag

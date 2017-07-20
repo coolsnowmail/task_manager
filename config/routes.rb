@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'admin_edit', to: 'tasks#admin_edit'
   get 'admin_new', to: 'tasks#admin_new'
   get 'admin_show', to: 'tasks#admin_show'
+  post 'state_change', to: 'tasks#state_change'
 
   controller :sessions do
     get 'login' => :new

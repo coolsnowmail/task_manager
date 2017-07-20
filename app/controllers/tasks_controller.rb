@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   skip_before_action :authorize_user, only: [:index]
-  before_action :set_task, only: [:edit, :update, :destroy, :show, :admin_show]
+  before_action :set_task, only: [:edit, :update, :destroy, :show, :admin_show, :state_change]
   def new
     @task = Task.new
     redirect_to admin_new_path if @current_user.role == 'admin'
@@ -55,6 +55,12 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
+  end
+
+  def state_change
+    @task.update(state: params[:state])
+    redirect_to users_show_admin_path(@current_user) if @current_user.role == 'admin'
+    redirect_to users_show_user_path(@current_user) if @current_user.role == 'user'
   end
 
     private
