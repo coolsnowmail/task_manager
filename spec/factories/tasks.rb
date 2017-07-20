@@ -1,7 +1,6 @@
 FactoryGirl.define do
-  factory :task do
-    name "MyString"
-    description "MyString"
-    state 1
+  factory :task, class: 'Task' do
+    sequence(:name) { |i| "name#{i}"}
+    description 'description'
   end
 end
