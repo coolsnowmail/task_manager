@@ -14,3 +14,12 @@
   text-align: center;
   margin-top: 50px;
 }
+
+.ruleTask {
+  display: flex;
+  flex-direction: column;
+}
+
+.ruleTask a {
+  margin-top: 5%;
+}
