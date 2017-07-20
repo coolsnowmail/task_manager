@@ -5,6 +5,10 @@ namespace :db do
 
     Rake::Task['db:reset'].invoke
 
+      User.create(email: "admin@site.ru",
+        password: "123",
+        password_confirmation: "123",
+        role: 'admin')
     # Create 15 posts
     15.times do
       User.create do |user|

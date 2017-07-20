@@ -3,6 +3,12 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :destroy]
   def new
     @task = Task.new
+    redirect_to admin_new_path if @current_user.role == 'admin'
+  end
+
+  def admin_new
+    @users = User.all.collect(&:email)
+    @task = Task.new
   end
 
   def create
@@ -30,7 +36,7 @@ class TasksController < ApplicationController
     redirect_to admit_edit_path if @current_user.role == 'admin'
   end
 
-  def admit_edit
+  def admin_edit
     @users = User.all.collect(&:email)
     @task = Task.find(params[:format])
   end
@@ -41,7 +47,6 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     return render partial: 'destroy'
-
   end
 
   def index
@@ -55,6 +60,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:description, :name)
+      params.require(:task).permit(:description, :name, :avatar)
     end
 end

@@ -1,6 +1,8 @@
+h1.taskListHeader Edit Task
+
 = simple_form_for @task do |f|
   = f.input :name
   = f.input :description, as: :text
-  = f.input :user_id, collection: @users
+  = f.input :user_id, collection: @users, selected: @task.user.email
   = f.input :avatar, as: :file
   = f.button :submit

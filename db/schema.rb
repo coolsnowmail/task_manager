@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20170720054620) do
   create_table "tasks", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
+    t.string   "avatar"
     t.integer  "state",       default: 1
     t.integer  "user_id"
     t.datetime "created_at",              null: false

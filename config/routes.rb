@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   get 'users/show_user'
   get 'users/show_admin'
-  get 'admit_edit', to: 'tasks#admit_edit'
+  get 'admin_edit', to: 'tasks#admin_edit'
+  get 'admin_new', to: 'tasks#admin_new'
 
   controller :sessions do
     get 'login' => :new

@@ -23,3 +23,12 @@
 .ruleTask a {
   margin-top: 5%;
 }
+
+.new_task_btn {
+  margin-bottom: 30px;
+  display: block;
+}
+
+.for_new_task_btn {
+  display: flex;
+}
