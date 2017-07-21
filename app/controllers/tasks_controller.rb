@@ -33,7 +33,7 @@ class TasksController < ApplicationController
   end
 
   def edit
-    redirect_to admit_edit_path if @current_user.role == 'admin'
+    redirect_to admin_edit_path if @current_user.role == 'admin'
   end
 
   def admin_edit
