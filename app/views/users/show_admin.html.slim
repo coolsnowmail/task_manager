@@ -2,28 +2,6 @@ h1.taskListHeader Tasks list
 
 .for_new_task_btn
   = link_to "New task", new_task_path, class: 'btn-lg btn-primary new_task_btn'
-- @tasks.each do |task|
-  div.taskBox id="task_#{task.id}"
-    ul.taskLine
-      li.taskAttr
-        = task.id
-      li.taskAttr
-        = task.user.email
-      li.taskAttr
-        = task.name
-      li.taskAttr
-        = task.description
-      li.taskAttr id="task_form#{task.id}"
-        = form_tag('/state_change') do
-          = select_tag "state", options_for_select(Task.states.keys, selected: task.state), {class: 'tasky'}
-          = hidden_field_tag("id", task.id)
-          = submit_tag
-      li.taskAttr
-        = task.created_at.strftime('%H:%M:%S %Y-%m-%d')
-      li.taskAttr
-        = image_tag task.avatar.url(:thumb)
-      li.taskAttr.ruleTask
-        = link_to 'Update', admin_edit_path(task), class: 'btn btn-primary'
-        = link_to 'Destroy', task, data: { confirm: 'Are you sure' }, method: :delete, class: 'btn btn-primary', remote: true
-        = link_to 'See', task_path(task), class: 'btn btn-primary'
-  hr.intro-divider id="divider_#{task.id}"
+#listing
+  - @tasks.each do |task|
+    == render 'state_form', task: task

@@ -2,4 +2,5 @@
   = f.input :name
   = f.input :description, as: :text
   = f.input :avatar, as: :file
+  = f.hidden :iser_id, @task.user.id
   = f.button :submit

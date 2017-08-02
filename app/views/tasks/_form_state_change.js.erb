@@ -1,0 +1,3 @@
+$("#task_<%= @task.id %>").remove();
+$("#divider_<%= @task.id %>").remove();
+$("#listing").append("<%=j render 'users/state_form', task: @task %>");

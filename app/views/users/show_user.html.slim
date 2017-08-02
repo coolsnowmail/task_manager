@@ -12,10 +12,9 @@ h1.taskListHeader Tasks list
       li.taskAttr
         = task.description
       li.taskAttr id="task_form#{task.id}"
-        = form_tag('/state_change') do
-          = select_tag "state", options_for_select(Task.states.keys, selected: task.state), {class: 'tasky'}
+        = form_tag('/state_change', remote: true) do
+          = select_tag "state", options_for_select(Task.states.keys, selected: task.state), {class: 'tasky', onchange: 'javascript: $( this ).trigger("submit.rails")'}
           = hidden_field_tag("id", task.id)
-          = submit_tag
       li.taskAttr
         = task.created_at.strftime('%H:%M:%S %Y-%m-%d')
       li.taskAttr

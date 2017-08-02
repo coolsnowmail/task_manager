@@ -59,8 +59,9 @@ class TasksController < ApplicationController
 
   def state_change
     @task.update(state: params[:state])
-    redirect_to users_show_admin_path(@current_user) if @current_user.role == 'admin'
-    redirect_to users_show_user_path(@current_user) if @current_user.role == 'user'
+    return render partial: 'form_state_change'
+    # redirect_to users_show_admin_path(@current_user) if @current_user.role == 'admin'
+    # redirect_to users_show_user_path(@current_user) if @current_user.role == 'user'
   end
 
     private
@@ -70,6 +71,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:description, :name, :avatar)
+      params.require(:task).permit(:description, :name, :avatar, :user_id)
     end
 end
